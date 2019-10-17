@@ -2,12 +2,14 @@
 //
 
 #include "pch.h"
-#include <iostream>
-#include "ClientConnectionManager.h"
+using namespace std;
 int main()
 {
+	string ip = "169.254.140.159";
+	//string ip = "10.0.2.25";
+	int port = 49152;
 	ClientConnectionManager* ccm = new ClientConnectionManager();
-	ccm->openConnection();
+	ccm->openConnection(ip, port);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
