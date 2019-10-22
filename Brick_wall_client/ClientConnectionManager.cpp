@@ -65,6 +65,13 @@ int ClientConnectionManager::openConnection(string ip, int port){
 	puts(" Connected");
 	return 0;
 }
+int ClientConnectionManager::openUDPSocket()
+{
+	int addr = 0;
+	int port = 1515;
+	openUDPSocket(addr, port);
+	return 0;
+}
 // This is the function that opens the UDP Socket
 int ClientConnectionManager::openUDPSocket(int addr, int port) {
 	// Initialize an UDP socket that you can use to send messages
@@ -98,7 +105,7 @@ int ClientConnectionManager::openUDPSocket(int addr, int port) {
 	server.sin_port = htons(port);
 
 	//Bind
-	if (bind(s, (struct sockaddr *)&amp; server, sizeof(server)) == SOCKET_ERROR)
+	if (bind(s, (struct sockaddr *) &server, sizeof(server)) == SOCKET_ERROR)
 	{
 		printf(" Bind failed with error code : %d", WSAGetLastError());
 		exit(EXIT_FAILURE);
